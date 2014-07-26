@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameState = GameState.Start;
+        CurrentGameState = GameState.Start;
         slingshot.enabled = false;
         Bricks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Brick"));
         Birds = new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird"));
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (gameState)
+        switch (CurrentGameState)
         {
             case GameState.Start:
                 if (Input.GetMouseButtonUp(0))
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
                 {
                     slingshot.enabled = false;
                     AnimateCameraToStartPosition();
-                    gameState = GameState.BirdMovingToSlingshot;
+                    CurrentGameState = GameState.BirdMovingToSlingshot;
                 }
                 break;
             case GameState.Won:
@@ -74,17 +74,17 @@ public class GameManager : MonoBehaviour
                             cameraFollow.IsFollowing = false;
                             if(AllPigsDestroyed())
                             {
-                                gameState = GameState.Won;
+                                CurrentGameState = GameState.Won;
                             }
                             //animate the next bird, if available
                             else if (currentBirdIndex == Birds.Count - 1)
                             {
                                 //no more birds, go to finished
-                                gameState = GameState.Lost;
+                                CurrentGameState = GameState.Lost;
                             }
                             else
                             {
-                                slingshot.slingshotState = SlingshotState.Start;
+                                slingshot.slingshotState = SlingshotState.Idle;
                                 currentBirdIndex++;
                                 AnimateBirdToSlingshot();
                             }
@@ -93,14 +93,14 @@ public class GameManager : MonoBehaviour
 
     void AnimateBirdToSlingshot()
     {
-        gameState = GameState.BirdMovingToSlingshot;
+        CurrentGameState = GameState.BirdMovingToSlingshot;
         Birds[currentBirdIndex].transform.positionTo(Vector2.Distance(Birds[currentBirdIndex].transform.position / 10, slingshot.BirdWaitPosition.transform.position) / 10,
             slingshot.BirdWaitPosition.transform.position).
                 setOnCompleteHandler((x) =>
                         {
                             x.complete();
                             x.destroy();
-                            gameState = GameState.Playing;
+                            CurrentGameState = GameState.Playing;
                             slingshot.enabled = true;
                             slingshot.BirdToThrow = Birds[currentBirdIndex];
                         });
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
-        switch (gameState)
+        switch (CurrentGameState)
         {
             case GameState.Start:
                 GUI.Label(new Rect(100, 100, 100, 100), "Tap the screen to start");
@@ -163,7 +163,8 @@ public class GameManager : MonoBehaviour
     public CameraFollow cameraFollow;
     int currentBirdIndex;
     public SlingShot slingshot;
-    private GameState gameState = GameState.Start;
+    [HideInInspector]
+    public static GameState CurrentGameState = GameState.Start;
     private List<GameObject> Bricks;
     private List<GameObject> Birds;
     private List<GameObject> Pigs;

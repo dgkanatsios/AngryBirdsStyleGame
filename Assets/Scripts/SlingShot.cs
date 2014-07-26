@@ -29,7 +29,7 @@ public class SlingShot : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        slingshotState = SlingshotState.Start;
+        slingshotState = SlingshotState.Idle;
         SlingshotLineRenderer1.SetPosition(0, LeftSlingshotOrigin.position);
         SlingshotLineRenderer2.SetPosition(0, RightSlingshotOrigin.position);
 
@@ -45,7 +45,7 @@ public class SlingShot : MonoBehaviour
 
         switch (slingshotState)
         {
-            case SlingshotState.Start:
+            case SlingshotState.Idle:
                 InitializeBird();
                 DisplaySlingshotLineRenderers();
                 if (Input.GetMouseButtonDown(0))
@@ -130,7 +130,7 @@ public class SlingShot : MonoBehaviour
     private void InitializeBird()
     {
         BirdToThrow.transform.position = BirdWaitPosition.position;
-        slingshotState = SlingshotState.Start;
+        slingshotState = SlingshotState.Idle;
         SetSlingshotLineRenderersActive(true);
     }
 

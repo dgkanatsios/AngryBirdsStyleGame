@@ -7,7 +7,7 @@ namespace Assets.Scripts
 {
     public enum SlingshotState
     {
-        Start,
+        Idle,
         UserPulling,
         BirdFlying
     }
