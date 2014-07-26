@@ -38,7 +38,7 @@ public class CameraPinchToZoom : MonoBehaviour
                 camera.orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
 
                 // Make sure the orthographic size never drops below zero.
-                camera.orthographicSize = Mathf.Max(camera.orthographicSize, 0.1f);
+                camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, 3f, 5f);
             }
             else //perspective
             {

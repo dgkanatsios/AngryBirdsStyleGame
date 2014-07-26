@@ -19,33 +19,32 @@ public class CameraMove : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 timeDragStarted = Time.time;
-                previousPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                dragSpeed = 0f;
+                previousPosition = Input.mousePosition;
             }
 
             else if (Input.GetMouseButton(0) && Time.time - timeDragStarted > 0.05f)
             {
-                Vector3 input = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                float delta = (previousPosition.x - input.x) * Time.deltaTime * 30;
-                float newX = Mathf.Clamp(transform.position.x + delta, 0, 13.36336f);
-
+                Vector3 input = Input.mousePosition;
+                float deltaX = (previousPosition.x - input.x)  * dragSpeed;
+                float deltaY = (previousPosition.y - input.y) * dragSpeed;
+                
+                float newX = Mathf.Clamp(transform.position.x + deltaX, 0, 13.36336f);
+                float newY = Mathf.Clamp(transform.position.y + deltaY, 0, 2.715f);
+                
                 transform.position = new Vector3(
                     newX,
-                    transform.position.y,
+                    newY,
                     transform.position.z);
 
                 previousPosition = input;
-                Debug.Log(input.x + " " + previousPosition.x);
+                if(dragSpeed < 0.1f) dragSpeed += 0.005f;
+                Debug.Log(dragSpeed);
             }
-
-            //else if (Input.GetMouseButtonUp(0))
-            //    previousPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
-           
         }
     }
 
-
+    private float dragSpeed = 0.01f;
     private float timeDragStarted;
     private Vector3 previousPosition = Vector3.zero;
 
