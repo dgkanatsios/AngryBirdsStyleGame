@@ -199,7 +199,6 @@ public class SlingShot : MonoBehaviour
         Vector2 segVelocity = new Vector2(v2.x, v2.y) * ThrowSpeed * distance;
 
         float angle = Vector2.Angle(segVelocity, new Vector2(1, 0));
-        Debug.Log(angle);
         float time = segmentScale / segVelocity.magnitude;
         for (int i = 1; i < segmentCount; i++)
         {
