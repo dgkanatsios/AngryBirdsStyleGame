@@ -6,19 +6,27 @@ using System;
 public class SlingShot : MonoBehaviour
 {
 
-    //a vector that points in the middle between left and right origin
+    //a vector that points in the middle between left and right parts of the slingshot
     private Vector3 SlingshotMiddleVector;
 
     [HideInInspector]
     public SlingshotState slingshotState;
+
+    //the left and right parts of the slingshot
     public Transform LeftSlingshotOrigin, RightSlingshotOrigin;
 
+    //two line renderers to simulate the "strings" of the slingshot
     public LineRenderer SlingshotLineRenderer1;
     public LineRenderer SlingshotLineRenderer2;
+    
+    //this linerenderer will draw the projected trajectory of the thrown bird
     public LineRenderer TrajectoryLineRenderer;
+    
     [HideInInspector]
+    //the bird to throw
     public GameObject BirdToThrow;
 
+    //the position of the bird tied to the slingshot
     public Transform BirdWaitPosition;
 
     public float ThrowSpeed;
@@ -41,12 +49,9 @@ public class SlingShot : MonoBehaviour
         SlingshotLineRenderer1.SetPosition(0, LeftSlingshotOrigin.position);
         SlingshotLineRenderer2.SetPosition(0, RightSlingshotOrigin.position);
 
+        //pointing at the middle position of the two vectors
         SlingshotMiddleVector = new Vector3((LeftSlingshotOrigin.position.x + RightSlingshotOrigin.position.x) / 2,
             (LeftSlingshotOrigin.position.y + RightSlingshotOrigin.position.y) / 2, 0);
-
-
-       
-
     }
 
     // Update is called once per frame
@@ -55,11 +60,15 @@ public class SlingShot : MonoBehaviour
         switch (slingshotState)
         {
             case SlingshotState.Idle:
+                //fix bird's position
                 InitializeBird();
+                //display the slingshot "strings"
                 DisplaySlingshotLineRenderers();
                 if (Input.GetMouseButtonDown(0))
                 {
+                    //get the point on screen user has tapped
                     Vector3 location = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    //if user has tapped onto the bird
                     if (BirdToThrow.GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(location))
                     {
                         slingshotState = SlingshotState.UserPulling;
@@ -74,16 +83,19 @@ public class SlingShot : MonoBehaviour
                     //get where user is tapping
                     Vector3 location = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     location.z = 0;
+                    //we will let the user pull the bird up to a maximum distance
                     if (Vector3.Distance(location, SlingshotMiddleVector) > 1.5f)
                     {
-                        var lala = (location - SlingshotMiddleVector).normalized * 1.5f + SlingshotMiddleVector;
-                        BirdToThrow.transform.position = lala;
+                        //basic vector maths :)
+                        var maxPosition = (location - SlingshotMiddleVector).normalized * 1.5f + SlingshotMiddleVector;
+                        BirdToThrow.transform.position = maxPosition;
                     }
                     else
                     {
                         BirdToThrow.transform.position = location;
                     }
                     float distance = Vector3.Distance(SlingshotMiddleVector, BirdToThrow.transform.position);
+                    //display projected trajectory based on the distance
                     DisplayTrajectoryLineRenderer2(distance);
                 }
                 else//user has removed the tap 
@@ -101,7 +113,9 @@ public class SlingShot : MonoBehaviour
                     else//not pulled long enough, so reinitiate it
                     {
                         //distance/10 was found with trial and error :)
-                        BirdToThrow.transform.positionTo(distance / 10, BirdWaitPosition.transform.position).
+                        //animate the bird to the wait position
+                        BirdToThrow.transform.positionTo(distance / 10, //duration
+                            BirdWaitPosition.transform.position). //final position
                             setOnCompleteHandler((x) =>
                         {
                             x.complete();
@@ -122,15 +136,17 @@ public class SlingShot : MonoBehaviour
 
     private void ThrowBird(float distance)
     {
-        Vector3 v2 = SlingshotMiddleVector - BirdToThrow.transform.position;
+        //get velocity
+        Vector3 velocity = SlingshotMiddleVector - BirdToThrow.transform.position;
         BirdToThrow.GetComponent<Bird>().OnThrow(); //make the bird aware of it
         //old and alternative way
         //BirdToThrow.GetComponent<Rigidbody2D>().AddForce
         //    (new Vector2(v2.x, v2.y) * ThrowSpeed * distance * 300 * Time.deltaTime);
-        BirdToThrow.GetComponent<Rigidbody2D>().velocity = new Vector2(v2.x, v2.y) * ThrowSpeed * distance;
+        //set the velocity
+        BirdToThrow.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x, velocity.y) * ThrowSpeed * distance;
 
 
-        //notify interested friends that the bird was thrown
+        //notify interested parties that the bird was thrown
         if (BirdThrown != null)
             BirdThrown(this, EventArgs.Empty);
     }
@@ -139,6 +155,7 @@ public class SlingShot : MonoBehaviour
 
     private void InitializeBird()
     {
+        //initialization of the ready to be thrown bird
         BirdToThrow.transform.position = BirdWaitPosition.position;
         slingshotState = SlingshotState.Idle;
         SetSlingshotLineRenderersActive(true);

@@ -13,12 +13,6 @@ public class Pig : MonoBehaviour
         ChangeSpriteHealth = Health - 30f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.GetComponent<Rigidbody2D>() == null) return;
@@ -31,13 +25,15 @@ public class Pig : MonoBehaviour
         }
         else //we're hit by something else
         {
+            //calculate the damage via the hit object velocity
             float damage = col.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude * 10;
             Health -= damage;
+            //don't play sound for small damage
             if (damage >= 10)
                 GetComponent<AudioSource>().Play();
 
             if (Health < ChangeSpriteHealth)
-            {
+            {//change the shown sprite
                 GetComponent<SpriteRenderer>().sprite = SpriteShownWhenHurt;
             }
             if (Health <= 0) Destroy(this.gameObject);
