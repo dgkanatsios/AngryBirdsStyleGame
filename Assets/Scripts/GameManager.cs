@@ -157,23 +157,7 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     bool BricksBirdsPigsStoppedMoving()
     {
-        foreach (var item in Bricks)
-        {
-            if (item != null && item.rigidbody2D.velocity.sqrMagnitude > Constants.MinVelocity)
-            {
-                return false;
-            }
-        }
-
-        foreach (var item in Birds)
-        {
-            if (item != null && item.rigidbody2D.velocity.sqrMagnitude > Constants.MinVelocity)
-            {
-                return false;
-            }
-        }
-
-        foreach (var item in Pigs)
+        foreach (var item in Bricks.Union(Birds).Union(Pigs))
         {
             if (item != null && item.rigidbody2D.velocity.sqrMagnitude > Constants.MinVelocity)
             {
