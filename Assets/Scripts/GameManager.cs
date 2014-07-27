@@ -15,10 +15,16 @@ public class GameManager : MonoBehaviour
         Birds = new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird"));
         Pigs = new List<GameObject>(GameObject.FindGameObjectsWithTag("Pig"));
 
+        
+
         slingshot.BirdThrown -= Slingshot_BirdThrown; slingshot.BirdThrown += Slingshot_BirdThrown;
     }
 
-
+    public static void AutoResize(int screenWidth, int screenHeight)
+    {
+        Vector2 resizeRatio = new Vector2((float)Screen.width / screenWidth, (float)Screen.height / screenHeight);
+        GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(resizeRatio.x, resizeRatio.y, 1.0f));
+    }
 
 
     // Update is called once per frame
@@ -144,16 +150,17 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
+        AutoResize(800, 480);
         switch (CurrentGameState)
         {
             case GameState.Start:
-                GUI.Label(new Rect(100, 100, 100, 100), "Tap the screen to start");
+                GUI.Label(new Rect(0, 150, 200, 100), "Tap the screen to start");
                 break;
             case GameState.Won:
-                GUI.Label(new Rect(100, 100, 100, 100), "You won! Tap the screen to restart");
+                GUI.Label(new Rect(0, 150, 200, 100), "You won! Tap the screen to restart");
                 break;
             case GameState.Lost:
-                GUI.Label(new Rect(100, 100, 100, 100), "You lost! Tap the screen to restart");
+                GUI.Label(new Rect(0, 150, 200, 100), "You lost! Tap the screen to restart");
                 break;
             default:
                 break;

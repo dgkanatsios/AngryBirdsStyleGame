@@ -3,18 +3,11 @@ using System.Collections;
 
 public class Destroyer : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //destroyers are located in the borders of the screen
+        //if something collides with them, the'll destroy it
         string tag = col.gameObject.tag;
         if(tag == "Bird" || tag == "Pig" || tag == "Brick")
         {

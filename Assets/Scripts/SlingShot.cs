@@ -29,6 +29,14 @@ public class SlingShot : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //set the sorting layer name for the line renderers
+        //for the slingshot renderers this did not work so I
+        //set the z on the background sprites to 10
+        //hope there's a better way around that!
+        SlingshotLineRenderer1.sortingLayerName = "Foreground";
+        SlingshotLineRenderer2.sortingLayerName = "Foreground";
+        TrajectoryLineRenderer.sortingLayerName = "Foreground";
+
         slingshotState = SlingshotState.Idle;
         SlingshotLineRenderer1.SetPosition(0, LeftSlingshotOrigin.position);
         SlingshotLineRenderer2.SetPosition(0, RightSlingshotOrigin.position);
@@ -36,13 +44,14 @@ public class SlingShot : MonoBehaviour
         SlingshotMiddleVector = new Vector3((LeftSlingshotOrigin.position.x + RightSlingshotOrigin.position.x) / 2,
             (LeftSlingshotOrigin.position.y + RightSlingshotOrigin.position.y) / 2, 0);
 
+
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         switch (slingshotState)
         {
             case SlingshotState.Idle:
@@ -114,13 +123,14 @@ public class SlingShot : MonoBehaviour
     private void ThrowBird(float distance)
     {
         Vector3 v2 = SlingshotMiddleVector - BirdToThrow.transform.position;
-        BirdToThrow.GetComponent<Bird>().OnThrow();
+        BirdToThrow.GetComponent<Bird>().OnThrow(); //make the bird aware of it
+        //old and alternative way
         //BirdToThrow.GetComponent<Rigidbody2D>().AddForce
         //    (new Vector2(v2.x, v2.y) * ThrowSpeed * distance * 300 * Time.deltaTime);
         BirdToThrow.GetComponent<Rigidbody2D>().velocity = new Vector2(v2.x, v2.y) * ThrowSpeed * distance;
 
 
-        //raise the event
+        //notify interested friends that the bird was thrown
         if (BirdThrown != null)
             BirdThrown(this, EventArgs.Empty);
     }
@@ -153,7 +163,7 @@ public class SlingShot : MonoBehaviour
 
 
     /// <summary>
-    /// Another solution (more accurate) can be found here
+    /// Another solution (a great one) can be found here
     /// http://wiki.unity3d.com/index.php?title=Trajectory_Simulation
     /// </summary>
     /// <param name="distance"></param>
@@ -171,7 +181,7 @@ public class SlingShot : MonoBehaviour
         // The initial velocity
         Vector2 segVelocity = new Vector2(v2.x, v2.y) * ThrowSpeed * distance;
 
-        float angle = Vector2.Angle(segVelocity, new Vector2(1,0));
+        float angle = Vector2.Angle(segVelocity, new Vector2(1, 0));
         Debug.Log(angle);
         float time = segmentScale / segVelocity.magnitude;
         for (int i = 1; i < segmentCount; i++)
@@ -183,16 +193,13 @@ public class SlingShot : MonoBehaviour
             segments[i] = segments[0] + segVelocity * time2 + 0.5f * Physics2D.gravity * Mathf.Pow(time2, 2);
         }
 
-      
-        
-
         TrajectoryLineRenderer.SetVertexCount(segmentCount);
         for (int i = 0; i < segmentCount; i++)
             TrajectoryLineRenderer.SetPosition(i, segments[i]);
     }
 
 
-   
+
     ///http://opengameart.org/content/forest-themed-sprites
     ///forest sprites found on opengameart.com
     ///© 2012-2013 Julien Jorge <julien.jorge@stuff-o-matic.com>

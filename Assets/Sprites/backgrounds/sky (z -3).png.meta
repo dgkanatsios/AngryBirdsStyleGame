@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 3138245225250854ea1043b6462af812
+guid: 256bec8399ecebb4db1c854d537f7d86
 TextureImporter:
   fileIDToRecycleName:
-    21300000: forest-4
+    21300000: sky (z -3)
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

@@ -3,7 +3,10 @@ using System.Collections;
 
 
 /// <summary>
-/// Found in http://unity3d.com/pt/learn/tutorials/modules/beginner/platform-specific/pinch-zoom
+/// Found in 
+/// http://unity3d.com/pt/learn/tutorials/modules/beginner/platform-specific/pinch-zoom
+/// Contains both perspective and orthographic stuff, in this 2D game we'll
+/// be using only the orthographic one
 /// </summary>
 public class CameraPinchToZoom : MonoBehaviour
 {
