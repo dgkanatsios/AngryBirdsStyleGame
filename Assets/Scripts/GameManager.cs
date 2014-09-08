@@ -92,9 +92,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void AnimateCameraToStartPosition()
     {
+        float duration = Vector2.Distance(Camera.main.transform.position, cameraFollow.StartingPosition) / 10f;
+        if (duration == 0.0f) duration = 0.1f;
         //animate the camera to start
         Camera.main.transform.positionTo
-            (Vector2.Distance(Camera.main.transform.position, cameraFollow.StartingPosition) / 10, //duration
+            (duration,
             cameraFollow.StartingPosition). //end position
             setOnCompleteHandler((x) =>
                         {
@@ -126,7 +128,7 @@ public class GameManager : MonoBehaviour
     {
         CurrentGameState = GameState.BirdMovingToSlingshot;
         Birds[currentBirdIndex].transform.positionTo
-            (Vector2.Distance(Birds[currentBirdIndex].transform.position / 10, 
+            (Vector2.Distance(Birds[currentBirdIndex].transform.position / 10,
             slingshot.BirdWaitPosition.transform.position) / 10, //duration
             slingshot.BirdWaitPosition.transform.position). //final position
                 setOnCompleteHandler((x) =>
@@ -150,7 +152,7 @@ public class GameManager : MonoBehaviour
         cameraFollow.BirdToFollow = Birds[currentBirdIndex].transform;
         cameraFollow.IsFollowing = true;
     }
-    
+
     /// <summary>
     /// Check if all birds, pigs and bricks have stopped moving
     /// </summary>
