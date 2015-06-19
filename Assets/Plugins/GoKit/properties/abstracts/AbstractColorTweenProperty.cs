@@ -33,9 +33,9 @@ public abstract class AbstractColorTweenProperty : AbstractTweenProperty
 		if( owner.target is Material )
 			_target = (Material)owner.target;
 		else if( owner.target is GameObject )
-			_target = ((GameObject)owner.target).renderer.material;
+			_target = ((GameObject)owner.target).GetComponent<Renderer>().material;
 		else if( owner.target is Transform )
-			_target = ((Transform)owner.target).renderer.material;
+			_target = ((Transform)owner.target).GetComponent<Renderer>().material;
 		else if( owner.target is Renderer )
 			_target = ((Renderer)owner.target).material;
 		
