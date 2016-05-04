@@ -1,4 +1,4 @@
-Angry Birds look-alike game
+Angry Birds style game
 ===============
 
 An effor to replicate a level and relevant mechanisms of Rovio's famous Angry Birds game, built in Unity game engine. Source code is provided for educational purposes.
