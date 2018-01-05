@@ -1,3 +1,4 @@
+![](https://gaforgithub.azurewebsites.net/api?repo=AngryBirdsStyleGame&empty)
 Angry Birds style game
 ===============
 
