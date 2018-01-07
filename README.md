@@ -1,4 +1,5 @@
 [![unofficial Google Analytics for GitHub](https://gaforgithub.azurewebsites.net/api?repo=AngryBirdsStyleGame)](https://github.com/dgkanatsios/gaforgithub)
+
 Angry Birds style game
 ===============
 
