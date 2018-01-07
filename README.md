@@ -1,4 +1,5 @@
-Angry Birds style game ![](https://gaforgithub.azurewebsites.net/api?repo=AngryBirdsStyleGame&empty)
+[![unofficial Google Analytics for GitHub](https://gaforgithub.azurewebsites.net/api?repo=AngryBirdsStyleGame)](https://github.com/dgkanatsios/gaforgithub)
+Angry Birds style game
 ===============
 
 An effort to replicate a level and relevant mechanisms of Rovio's famous Angry Birds game, built in Unity game engine. Source code is provided for educational purposes.
