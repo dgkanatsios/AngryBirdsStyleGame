@@ -32,12 +32,12 @@ TextureImporter:
     21300054: INGAME_BLOCKS_WOOD_1_27
     21300056: INGAME_BLOCKS_WOOD_1_28
     21300058: INGAME_BLOCKS_WOOD_1_29
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -45,11 +45,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 4096
@@ -65,15 +66,31 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: INGAME_BLOCKS_WOOD_1_0
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -81,9 +98,12 @@ TextureImporter:
         width: 84
         height: 84
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_1
       rect:
         serializedVersion: 2
         x: 84
@@ -91,9 +111,12 @@ TextureImporter:
         width: 252
         height: 83
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_2
       rect:
         serializedVersion: 2
         x: 337
@@ -101,9 +124,12 @@ TextureImporter:
         width: 83
         height: 83
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_3
       rect:
         serializedVersion: 2
         x: 421
@@ -111,9 +137,12 @@ TextureImporter:
         width: 41
         height: 40
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_4
       rect:
         serializedVersion: 2
         x: 421
@@ -121,9 +150,12 @@ TextureImporter:
         width: 40
         height: 42
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_5
       rect:
         serializedVersion: 2
         x: 85
@@ -131,9 +163,12 @@ TextureImporter:
         width: 80
         height: 81
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_6
       rect:
         serializedVersion: 2
         x: 167
@@ -141,9 +176,12 @@ TextureImporter:
         width: 76
         height: 75
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_7
       rect:
         serializedVersion: 2
         x: 244
@@ -151,9 +189,12 @@ TextureImporter:
         width: 76
         height: 75
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_8
       rect:
         serializedVersion: 2
         x: 398
@@ -161,9 +202,12 @@ TextureImporter:
         width: 41
         height: 40
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_9
       rect:
         serializedVersion: 2
         x: 440
@@ -171,9 +215,12 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_10
       rect:
         serializedVersion: 2
         x: 440
@@ -181,9 +228,12 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_11
       rect:
         serializedVersion: 2
         x: 398
@@ -191,9 +241,12 @@ TextureImporter:
         width: 41
         height: 21
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_12
       rect:
         serializedVersion: 2
         x: 441
@@ -201,9 +254,12 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_13
       rect:
         serializedVersion: 2
         x: 85
@@ -211,9 +267,12 @@ TextureImporter:
         width: 80
         height: 162
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_14
       rect:
         serializedVersion: 2
         x: 252
@@ -221,9 +280,12 @@ TextureImporter:
         width: 40
         height: 42
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_15
       rect:
         serializedVersion: 2
         x: 252
@@ -231,9 +293,12 @@ TextureImporter:
         width: 211
         height: 22
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_16
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_16
       rect:
         serializedVersion: 2
         x: 85
@@ -241,9 +306,12 @@ TextureImporter:
         width: 76
         height: 75
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_17
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_17
       rect:
         serializedVersion: 2
         x: 167
@@ -251,9 +319,12 @@ TextureImporter:
         width: 40
         height: 42
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_18
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_18
       rect:
         serializedVersion: 2
         x: 252
@@ -261,9 +332,12 @@ TextureImporter:
         width: 169
         height: 21
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_19
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_19
       rect:
         serializedVersion: 2
         x: 422
@@ -271,9 +345,12 @@ TextureImporter:
         width: 41
         height: 21
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_20
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_20
       rect:
         serializedVersion: 2
         x: 1
@@ -281,9 +358,12 @@ TextureImporter:
         width: 80
         height: 81
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_21
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_21
       rect:
         serializedVersion: 2
         x: 252
@@ -291,9 +371,12 @@ TextureImporter:
         width: 169
         height: 21
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_22
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_22
       rect:
         serializedVersion: 2
         x: 422
@@ -301,9 +384,12 @@ TextureImporter:
         width: 41
         height: 42
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_23
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_23
       rect:
         serializedVersion: 2
         x: 167
@@ -311,9 +397,12 @@ TextureImporter:
         width: 41
         height: 40
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_24
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_24
       rect:
         serializedVersion: 2
         x: 252
@@ -321,9 +410,12 @@ TextureImporter:
         width: 84
         height: 21
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_25
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_25
       rect:
         serializedVersion: 2
         x: 337
@@ -331,9 +423,12 @@ TextureImporter:
         width: 83
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_26
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_26
       rect:
         serializedVersion: 2
         x: 252
@@ -341,9 +436,12 @@ TextureImporter:
         width: 84
         height: 22
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_27
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_27
       rect:
         serializedVersion: 2
         x: 0
@@ -351,9 +449,12 @@ TextureImporter:
         width: 84
         height: 84
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_28
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_28
       rect:
         serializedVersion: 2
         x: 0
@@ -361,9 +462,12 @@ TextureImporter:
         width: 84
         height: 83
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: INGAME_BLOCKS_WOOD_1_29
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: INGAME_BLOCKS_WOOD_1_29
       rect:
         serializedVersion: 2
         x: 0
@@ -371,7 +475,12 @@ TextureImporter:
         width: 84
         height: 85
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
