@@ -229,7 +229,7 @@ public class GoDummyPathEditor : Editor
 			return;
 		
 		// handle current selection and node addition via double click or ctrl click
-		if( Event.current.type == EventType.mouseDown )
+		if( Event.current.type == EventType.MouseDown )
 		{
 			var nearestIndex = getNearestNodeForMousePosition( Event.current.mousePosition );
 			_selectedNodeIndex = nearestIndex;
