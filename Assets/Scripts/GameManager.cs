@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts;
 using System.Linq;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -95,10 +96,8 @@ public class GameManager : MonoBehaviour
         float duration = Vector2.Distance(Camera.main.transform.position, cameraFollow.StartingPosition) / 10f;
         if (duration == 0.0f) duration = 0.1f;
         //animate the camera to start
-        Camera.main.transform.positionTo
-            (duration,
-            cameraFollow.StartingPosition). //end position
-            setOnCompleteHandler((x) =>
+        Camera.main.transform.DOMove(cameraFollow.StartingPosition, duration). //end position
+            OnComplete(() =>
                         {
                             cameraFollow.IsFollowing = false;
                             if (AllPigsDestroyed())
@@ -127,15 +126,12 @@ public class GameManager : MonoBehaviour
     void AnimateBirdToSlingshot()
     {
         CurrentGameState = GameState.BirdMovingToSlingshot;
-        Birds[currentBirdIndex].transform.positionTo
-            (Vector2.Distance(Birds[currentBirdIndex].transform.position / 10,
-            slingshot.BirdWaitPosition.transform.position) / 10, //duration
-            slingshot.BirdWaitPosition.transform.position). //final position
-                setOnCompleteHandler((x) =>
-                        {
-                            x.complete();
-                            x.destroy(); //destroy the animation
-                            CurrentGameState = GameState.Playing;
+        Birds[currentBirdIndex].transform.DOMove
+            (slingshot.BirdWaitPosition.transform.position, //final position
+            Vector2.Distance(Birds[currentBirdIndex].transform.position / 10,
+            slingshot.BirdWaitPosition.transform.position) / 10). //position
+                OnComplete(() =>
+                        {   CurrentGameState = GameState.Playing;
                             slingshot.enabled = true; //enable slingshot
                             //current bird is the current in the list
                             slingshot.BirdToThrow = Birds[currentBirdIndex];

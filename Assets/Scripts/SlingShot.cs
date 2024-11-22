@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts;
 using System;
+using DG.Tweening;
 
 public class SlingShot : MonoBehaviour
 {
@@ -114,12 +115,10 @@ public class SlingShot : MonoBehaviour
                     {
                         //distance/10 was found with trial and error :)
                         //animate the bird to the wait position
-                        BirdToThrow.transform.positionTo(distance / 10, //duration
-                            BirdWaitPosition.transform.position). //final position
-                            setOnCompleteHandler((x) =>
+                        BirdToThrow.transform.DOMove(BirdWaitPosition.transform.position, //final position
+                        distance / 10). //duration
+                            OnComplete(() =>
                         {
-                            x.complete();
-                            x.destroy();
                             InitializeBird();
                         });
 
